@@ -3,7 +3,7 @@ import { IOmdbResponse } from "../models/IOmdbResponse";
 
 import IMovie from "../models/IMovie";
 
-const BASEURL = "http://www.omdbapi.com/?apikey=4a05f679&";
+const BASEURL = "https://www.omdbapi.com/?apikey=4a05f679&";
 
 export async function getMoviesData(
   searchText: string
