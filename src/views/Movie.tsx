@@ -13,13 +13,15 @@ const Movie = () => {
 
   return (
     <>
-      <div className="text-xl text-sky-200 bg-black">
-        <FaBackward onClick={handleBackClick} className="cursor-pointer" />
+      <div className="flex items-center justify-center text-xl text-sky-200 bg-black">
+        <FaBackward
+          onClick={handleBackClick}
+          className="cursor-pointer hover:brightness-50 active:translate-y-5 text-3xl animate-fade-left animate-ease-linear"
+        />
+        <Header />
       </div>
 
-      <Header />
-
-      <div className="max-w-md mx-auto bg-white shadow-md overflow-hidden md:max-w-2xl">
+      <div className="max-w-md mx-auto bg-white shadow-md mt-12 mb-12 overflow-hidden md:max-w-2xl">
         <div className="flex flex-row">
           <div className="md:shrink-0">
             <img
@@ -28,7 +30,7 @@ const Movie = () => {
               alt="Movie Poster"
             />
           </div>
-          <div className="">
+          <div className="p-8">
             <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
               {data.Title}
             </div>
