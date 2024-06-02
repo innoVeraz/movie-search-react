@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, ReactElement } from "react";
 import { emptySearchState } from "./MovieSearchManager";
-import NavBar from "./navBar";
+import Header from "./Header";
 
 type ListProps = {
   handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
@@ -19,19 +19,16 @@ export const MovieList = ({
 }: ListProps) => {
   return (
     <>
-      <NavBar />
-      <div className="p-20 bg-black">
-        <h1 className=" text-sky-200 text-5xl font-thin mb-3 text-center p-4">
-          Moviesearch
-        </h1>
-        <form onSubmit={handleSubmit}>
-          <div className="flex justify-center p-4">
+      <div>
+        <Header />
+        <form className="bg-black pb-20" onSubmit={handleSubmit}>
+          <div className="flex justify-center">
             <input
               className="px-4 border border-grey-300 shadow-inner p-3 w-96 rounded-l-lg  "
               onChange={handleInputChange}
               value={userInput}
               type="text"
-              placeholder="Sök på filmtitlar"
+              placeholder="Search for movies"
             />
             <button
               className="w-40 h-15 ml-7 flex justify-center items-center text-sky-200 border-2 rounded-lg border-sky-200 shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#08f,0_0_15px_#08f,0_0_30px_#08f]"

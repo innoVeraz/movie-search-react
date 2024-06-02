@@ -1,35 +1,44 @@
-import { useLoaderData } from "react-router-dom";
-
+import { useLoaderData, useNavigate } from "react-router-dom";
 import IMovie from "../models/IMovie";
-import NavBar from "../components/navBar";
+import Header from "../components/Header";
+import { FaBackward } from "react-icons/fa";
 
 const Movie = () => {
   const data = useLoaderData() as IMovie;
+  const navigate = useNavigate();
+
+  const handleBackClick = () => {
+    navigate("/");
+  };
 
   return (
     <>
-      <NavBar />
-      <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-        <div className="md:flex">
+      <div className="text-xl text-sky-200 bg-black">
+        <FaBackward onClick={handleBackClick} className="cursor-pointer" />
+      </div>
+
+      <Header />
+
+      <div className="max-w-md mx-auto bg-white shadow-md overflow-hidden md:max-w-2xl">
+        <div className="flex flex-row">
           <div className="md:shrink-0">
             <img
-              className="h-48 w-full object-cover md:h-full md:w-48"
+              className="w-30 h-50 object-cover md"
               src={data.Poster}
-              alt="Modern building architecture"
+              alt="Movie Poster"
             />
           </div>
-          <div className="p-8">
+          <div className="">
             <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
               {data.Title}
             </div>
-            <p className="block mt-1 text-sm leading-tight font-light text-slate-500">
+            <p className="block mt-1 text-xs leading-tight text-slate-500">
               {data.Genre}
             </p>
-            <span className="text-sm text-red-700">imdbRating: </span>
-            <span className="text-sm text-red-700">{data.imdbRating}</span>
-            <p className="mt-3">Plot</p>
-            <p className="mt-2 text-black">{data.Plot}</p>
-            <p className="mt-8 text-sm ">{data.Actors}</p>
+            <span className="text-xs text-red-700">imdbRating: </span>
+            <span className="text-xs text-red-700">{data.imdbRating}</span>
+            <p className="mt-2 text-sm">{data.Plot}</p>
+            <p className="mt-8 text-sm">{data.Actors}</p>
           </div>
         </div>
       </div>

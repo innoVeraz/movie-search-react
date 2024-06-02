@@ -28,12 +28,6 @@ export const MovieSearchManager = () => {
       return;
     }
 
-    //Hur hanterar jag input frt och status 307 på serversidan??
-    // setNotFound({
-    //   notFound: true,
-    //   message: "No movies were found, try again!",
-    // });
-
     try {
       const response = await getMoviesData(userInput);
       const moviesData = response.Search || [];
@@ -55,8 +49,9 @@ export const MovieSearchManager = () => {
         <img className="rounded-lg w-52 h-72" src={movie.Poster}></img>
       </Link>
       <div>
-        <p className=" pl-3 pt-3 font-thin truncate">{movie.Title}</p>
-        <small className="pl-3">{movie.Year}</small>
+        <p className="pt-3 font-thin truncate">{movie.Title}</p>
+        <small>{}</small>
+        <small>{movie.Year}</small>
       </div>
     </li>
   ));
