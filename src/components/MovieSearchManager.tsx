@@ -46,12 +46,11 @@ export const MovieSearchManager = () => {
   const listItems = movies.map((movie) => (
     <li className=" flex flex-col  p-3  " key={movie.imdbID}>
       <Link to={`movie/${movie.imdbID}`}>
-        <img className="rounded-lg w-52 h-72" src={movie.Poster}></img>
+        <img className="rounded-lg" src={movie.Poster}></img>
       </Link>
       <div>
-        <p className="pt-3 font-thin truncate">{movie.Title}</p>
-        <small>{}</small>
-        <small>{movie.Year}</small>
+        <p className="text-sm pt-3">{movie.Title}</p>
+        <p>{movie.Year}</p>
       </div>
     </li>
   ));
